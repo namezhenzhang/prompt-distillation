@@ -1,0 +1,84 @@
+logging:
+  unique_string_keys: ['experiment_name','dataset.name', 'datetime']
+
+experiment_name: model_tuning
+
+dataset:
+  name: None
+  path:  # dataset in huggingface doesn't need path
+
+plm:
+  model_name: t5
+  model_path: t5-large
+  optimize:
+    freeze_para: False
+    lr: 1.0e-5
+    weight_decay: 0.0
+    scheduler:
+      type: 
+      num_warmup_steps: 500
+
+dataloader:
+  max_seq_length: 512 # max_seq_length 
+  decoder_max_length: 3 # the decoder max length to truncate decoder input sequence
+                    # if it is an encoder-decoder architecture. Note that it's not equavalent
+                    # to generation.max_length which is used merely in the generation phase.
+  truncate_method: "head" # choosing from balanced, head, tail
+  decode_from_pad: True
+
+train:
+  batch_size: 2
+  gradient_accumulation_steps: 4
+  max_grad_norm: 1.0
+  num_epochs:
+  num_training_steps: 500
+
+
+test:
+  batch_size: 16
+
+dev:
+  batch_size: 16
+
+template: manual_template
+verbalizer: manual_verbalizer
+
+
+
+manual_template:
+  choice: 0
+  file_path: None
+
+
+manual_verbalizer:
+  choice: 0
+  file_path: None
+  
+learning_setting: full
+# learning_setting: few_shot
+
+
+# few_shot:
+#   parent_config: learning_setting
+#   few_shot_sampling: sampling_from_train
+  
+
+# sampling_from_train:
+#   parent_config: few_shot_sampling
+#   num_examples_per_label: 32
+#   also_sample_dev: True
+#   num_examples_per_label_dev: 100
+#   seed:
+#     - 1999
+#     - 1227
+
+reproduce:
+  seed: 123
+  
+
+environment:
+  num_gpus: 3
+  cuda_visible_devices: [5,6,7]
+  local_rank: 0
+  model_parallel: True
+  device_map:
