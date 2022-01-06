@@ -17,7 +17,11 @@
 - fine-tuning的weight-decay不宜设置过大, 实验中设为了0
 - 不同显卡数量会导致相同seed不同结果
 - exp/run_distill(ft/pt).sh 是较优的参数设置, 但仍有探索空间, 比如softprompt个数, warmup step, batch_size, 以及valid频率(实验发现更高的验证频率能带来更好的结果, 同时训练过程中accu变化有些大)
+  
 - result
 
 ![result](result.png)
 
+- 前期实验结果(distillaion文件夹)
+
+![result1](result1.png)
