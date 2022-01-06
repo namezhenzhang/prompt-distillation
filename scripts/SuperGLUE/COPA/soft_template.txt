@@ -1,0 +1,1 @@
+premise: {"placeholder":"text_a"} question: {"meta":"question"}? A. {"meta":"choice1"} B. {"meta":"choice2"}. Answer is {"mask"}.

@@ -1,0 +1,1 @@
+{"placeholder":"text_b", "shortenable":False, "post_processing": lambda x:x+"."} {"mask"} {"placeholder":"text_a"} 

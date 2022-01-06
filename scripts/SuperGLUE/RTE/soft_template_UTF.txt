@@ -1,0 +1,3 @@
+Premise: {"placeholder":"text_a"} Hypothesis: {"placeholder":"text_b"} A.yes B.no. Answer is {"mask"}.
+
+ 
